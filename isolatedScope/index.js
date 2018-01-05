@@ -70,3 +70,27 @@
 
     
 })();
+
+
+
+/*
+    scope : "false"   It is default. And in this directive will inherit from controller in the same scope. This means any changes to the controller or directive will be in sync.
+    
+    scope : "true"    In this directive will inherit from controller but it will create child scope.  Any changes made to this new scope will not reflect back to the parent scope. However, since the new scope is inherited from the parent scope, any changes made in the parent scope i.e. controller will be reflected in the directive scope.
+
+
+    scope : "true"
+
+Angular JS will create a new scope by inheriting parent scope ( usually controller scope, else application’s root Scope ).
+
+Note : Any changes made to this new scope will not reflect back to the parent scope. However, since the new scope is inherited from the parent scope, any changes made in the parent scope i.e. controller will be reflected in the directive scope.
+
+scope : "false"
+
+The controller and directive are using the same scope object. This means any changes to the controller or directive will be in sync.
+
+scope : "{}"
+
+New scope created for the directive, but it will not be inherited from the parent scope. This new scope also known as Isolated scope because it is completely detached from its parent scope.
+
+*/
