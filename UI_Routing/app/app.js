@@ -2,7 +2,7 @@
     angular.module('routerApp', ['ui.router','login','home','register']);
 
     angular.module('routerApp')
-     .config(function($stateProvider, $urlRouterProvider) {
+     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     
     $urlRouterProvider.otherwise('/home');
         
@@ -37,6 +37,7 @@
     $stateProvider.state('register.register1',register1);
     $stateProvider.state('register.register2',register2);
         
-        
+    $locationProvider.html5Mode(true);    //  To remove # in url
+
 });
 })();

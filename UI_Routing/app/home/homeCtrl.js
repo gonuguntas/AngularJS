@@ -5,8 +5,7 @@
             
             $state.go("login",{data:"Login success"});  //  $state.go()  used to navigate one page to another page
                 
-            
-        };                                          
+                };                                          
         
     }
     

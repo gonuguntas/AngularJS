@@ -6,6 +6,8 @@
         $scope.goHome=function(){
             
             $state.go("home",{data:"Home success"});   //  $state.go()  used to navigate one page to another page
+                                                         //  $state.reload()  used to reload
+
         };
     }
     
