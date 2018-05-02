@@ -1,0 +1,67 @@
+Debugging Tips
+---------------
+
+$("div")     ======   document.queryselector('div')
+document.queryselector('div').length   ======   $$('div').length
+document.body.contentEditable= true   -------- edit directly in browser
+
+console.log(document.body) -----   body tags in console
+
+getEventListeners($("div")) ----  To get events on element
+
+monitorEvents($('div'))  ---- live events in console
+
+console.time("aa") logic   console.timeEnd("aa")   ------- To calculate time
+
+console.table(myArray) --------- To find array in table format
+
+dir($("div"))  ---------- All available attributes
+
+inspect($("div")[2]) -------- inspect the element
+
+$0   ------------  first element
+$1   ------------  second element
+
+inspect element -- go to right side -- select Event  Listeners  deselect Ancestors ------------ get all events
+click on event .. it goes to sources and    Right side event Listener Breakpoints -- select one event and click event
+on browser like button  -- it goes to directly
+breakpint in sources 
+
+
+inspect element -- go to right side Styles tab   filter search and   .cls to find class and add class  :hov for hover effects
+
+console.table(myArray,{property:value})
+
+console tab   right side settings icon ---select preserve log  --- for previous data on console
+
+double click on inside line and put break point then it goes to directly to selected place in the line
+
+sources -- put breakpoints  go to right see call stack and right click on unwanted scripts and click blackbox script for 
+remove breakpoints.... if you show blackbox   click on show 
+
+ctrl+P  ----  To open file in sources tab
+ctrl+ shift+ O --- To open functions
+Refresh with clear cache---- press and hold refresh button
+
+Audits  Tab----- gives no of css classes effecting and javascript files  
+
+ANGULAR JS
+--------------
+
+angular.element($0) -----------and you now have access to all the good things:
+angular.element($0).scope() ---------- will return the scope for the element.
+angular.element(targetNode).isolateScope()---------- for isolated scope
+angular.element($0).controller()----------- will give you the controller 
+$($0).scope().$parent ---------- properties of the parent scope
+$($0).scope().$parent.$parent------- properties of the parent parent scope
+$($0).scope().$root ---------- root scope
+angular.element($0).injector()------ returns the app’s injector, which you can then use to get access to other things
+angular.element($0).scope().id like ng-model   ----- Gives value of element
+
+
+Extentions
+-----------
+Batarang
+ng-inspector
+ng-stats
+

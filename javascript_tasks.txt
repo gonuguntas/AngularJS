@@ -1,0 +1,493 @@
+ link: function (scope, element, attrs) {
+
+                element.bind('keypress', function (evt) {
+                    var expression = new RegExp(/^[a-zA-Z. ]*$/);
+                    if (!expression.test(evt.key)) {
+
+                        evt.preventDefault();
+                    }
+                });
+
+custom filter in angularjs
+---------------------------
+app.filter('myFormat', function() {
+    return function(phoneNumber){
+        var result = phoneNumber.substring(0,3)+"-"+
+                    phoneNumber.substring(3,6)+"-"+
+                    phoneNumber.substring(6,10);
+         return result;
+                    
+    };
+});
+
+
+
+Denomination of CurrencyNotes
+------------------------------
+<html>
+<head><title>Display the Denomination</title></head>
+<body>
+Enter amount : <input type="text" id="notes">
+<input type="button" value="get" onclick="get()">
+<p id="noofnotes"></p>
+<script>
+function get(){
+var a = document.getElementById("notes").value
+n=parseInt(a);
+h=Math.floor(n/100);
+n=n-h*100;
+f=Math.floor(n/50);
+n=n-f*50;
+tw=Math.floor(n/20);
+n=n-tw*20;
+t=Math.floor(n/10);
+n=n-t*10;
+fi=Math.floor(n/5);
+n=n-fi*5;
+two=Math.floor(n/2);
+n=n-two*2;
+one=Math.floor(n/1);
+
+document.getElementById("noofnotes").innerHTML="Hundreds="+h+"<br>Fifties="+f+"<br>Twenties="+tw+"<br>Tens="+t+"<br>Fives="+fi+"<br>Twos="+two+"<br>Ones="+one;
+
+}
+</script>
+</body></html>
+
+To find max number
+----------------
+
+function myFunction() {
+var arr=[12,65,78,45,87,90];
+    document.getElementById("demo").innerHTML = Math.max.apply(null,arr);
+}
+
+or 
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = Math.max.call(null,12,54,67,34,76);
+}
+
+
+to find min number 
+----------------
+function myFunction() {
+var arr=[12,65,78,45,87,90];
+    document.getElementById("demo").innerHTML = Math.min.apply(null,arr);
+}
+
+or 
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = Math.min.call(null,12,54,67,34,76);
+}
+
+
+To find duplicates in array
+-------------------------
+<script>
+var arr = [9, 9, 111, 2, 3, 4, 4, 5, 7];
+var sorted_arr = arr.slice().sort(function(a,b){return a-b;});                        // (we use slice to clone the array so the
+         // original array won't be modified)
+var results = [];
+for (var i = 0; i < sorted_arr.length - 1; i++) {
+    if (sorted_arr[i + 1] == sorted_arr[i]) {
+        results.push(sorted_arr[i]);
+    }
+}
+
+console.log(results);
+
+</script>
+
+To find duplicates and common elements in 2 arrays
+---------------------------------
+<script>
+var arr = [9, 9, 111, 2, 3, 4, 4, 5, 7];
+var arr1=[111,34,56,7];
+var arr2=arr.concat(arr1);
+var sorted_arr = arr2.slice().sort(function(a,b){return a-b;});                        // (we use slice to clone the array so the
+         // original array won't be modified)
+var results = [];
+for (var i = 0; i < sorted_arr.length - 1; i++) {
+    if (sorted_arr[i + 1] == sorted_arr[i]) {
+        results.push(sorted_arr[i]);
+    }]);
+}
+
+console.log(results);
+document.getElementById("demo").innerHTML=results;
+
+</script>
+
+common values in 2 arrays
+------------------------
+<script>
+
+var array1 = ['1', '2', '3', '4', '5'];
+var array2 = ['4', '5'];
+var index;
+for (var i=0; i<array2.length; i++) {
+    index = array1.indexOf(array2[i]);
+    if (index > -1) {
+console.log(array1[index]);
+
+    }
+}
+
+</script>
+
+sum of even numbers
+-------------------
+<script type="text/javascript">
+var arr=[];
+var sum = 0;
+for(var i=0;i<=100;i++){
+	if(i % 2 == 0){
+    arr.push(i);
+    sum+=i;
+    }
+}
+console.log(arr);
+console.log(sum);
+
+</script>
+
+sum of natural numbers
+----------------------
+
+<script type="text/javascript">
+var sum = 0;
+function tot(n){
+for(var i=0;i<=n;i++){
+	sum+=i;
+}
+return sum;
+}
+tot(10);
+console.log(sum);
+
+</script>
+
+sum of arguments
+---------------
+
+<script type="text/javascript">
+function sum(){
+  var sum =0; 
+  for(var i=0;i<arguments.length;i++){
+     sum += arguments[i];
+  }
+   return sum;
+}
+console.log(sum(1,2,5,7)); 
+</script>
+
+sum of array elements
+----------------------
+<script type="text/javascript">
+var arr=[3,5,6,7,8,9,34,54,23,13];
+  var sum =0; 
+  for(var i=0; i<arr.length; i++){
+     sum += arr[i];
+  }
+console.log(sum);
+</script>
+
+Prototype for even and odd numbers in javascript
+---------------------------------------
+(function(){
+
+ Array.prototype.even = function(){
+     console.log(this);
+     for(var i=0;i<this.length;i++){
+         if(i%2==0){
+             console.log(this[i]);
+         }
+     }
+ };
+  Array.prototype.odd = function(){
+     console.log(this);
+     for(var i=0;i<this.length;i++){
+         if(i%2==1){
+             console.log(this[i]);
+         }
+     }
+ };
+})()
+
+prototype for highest number in array
+--------------------------------------
+Array.prototype.high=function(){ 
+	return Math.max.apply(null,this);
+}
+
+prototype for first elemet
+----------------
+var a=[1,2,34,5,6,7]; 
+Array.prototype.first=function(){ return this[0];}
+
+console.log(a.first());   //   out put is : 1
+
+call() in Javascript
+---------------------
+The call() method calls a function with a given this value and arguments provided individually.
+example:1
+----------
+function Product(name, price) {
+ 
+ this.name = name;
+  
+this.price = price;
+
+}
+
+
+function Food(name, price) {
+ 
+ Product.call(this, name, price);
+ 
+ this.category = 'food';
+
+}
+console.log(new Food('cheese', 5).name);
+// expected output: "cheese"
+
+example:2
+-----------
+//Demo with javascript .call()
+
+var obj = {name:"Niladri"};
+
+var greeting = function(a,b,c){
+    return "welcome "+this.name+" to "+a+" "+b+" in "+c;
+};
+
+console.log(greeting.call(obj,"Newtown","KOLKATA","WB"));
+// returns output as welcome Niladri to Newtown KOLKATA in WB
+
+apply() in javascript
+-----------------------
+The apply() method calls a function with a given this value, and arguments provided as an array (or an array-like object).
+Note: While the syntax of this function is almost identical to that of call(), the fundamental difference is that call() accepts an argument list, while apply() accepts a single array of arguments.
+
+example:1
+---------
+var numbers = [5, 6, 2, 3, 7];
+
+
+var max = Math.max.apply(null, numbers);
+
+
+console.log(max);
+// expected output: 7
+
+
+var min = Math.min.apply(null, numbers);
+
+
+console.log(min);
+// expected output: 2
+
+example:2
+-----------
+var obj = {name:"Niladri"};
+
+var greeting = function(a,b,c){
+    return "welcome "+this.name+" to "+a+" "+b+" in "+c;
+};
+
+// array of arguments to the actual function
+var args = ["Newtown","KOLKATA","WB"];  
+console.log(greeting.apply(obj,args));
+
+bind() in javascript
+--------------------
+The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+
+var obj = {name:"Niladri"};
+
+var greeting = function(a,b,c){
+    return "welcome "+this.name+" to "+a+" "+b+" in "+c;
+};
+
+//creates a bound function that has same body and parameters 
+var bound = greeting.bind(obj); 
+
+
+console.dir(bound); ///returns a function
+
+console.log("Output using .bind() below ");
+
+console.log(bound("Newtown","KOLKATA","WB")); //call the bound function
+
+
+Missing numbers in array
+---------------------------
+<script>
+var a = [1,4,7];
+var count = a[a.length - 1];
+var missing = [];
+for ( var i = 1; i <= count; i++ ) {
+	if (a.indexOf(i) == -1) {
+		missing.push(i);
+	}
+}
+console.log(missing);
+</script>
+
+Duplicates removing in String
+-----------------------------
+<script>
+var str='abcdece';
+var result = '';
+  for(var i = 0; i < str.length; i++) {
+    if(result.indexOf(str[i]) == -1) {
+      result += str[i];
+    }
+  }
+console.log(result);
+</script>
+
+delete total object 
+-----------------------
+
+<script>
+var obj={id:1,name:"aaaa",vill:"nvp"};   //Object.keys(obj).length // object length.
+var objkeys=Object.keys(obj);
+for(var i=0; i<objkeys.length; i++){
+	delete obj[objkeys[i]];
+}
+console.log(obj);
+</script>
+
+Object to array convertion
+--------------------------
+    var person = {fname:"John", lname:"Doe", age:25}; 
+    var arr = [];
+    var x;
+    for (x in person) {
+        arr.push(person[x]);
+    }
+    console.log(arr);
+
+Fibonacci series numbers
+-------------------------
+<script>
+var fib = []; // Initialize array!
+
+fib[0] = 0;
+fib[1] = 1;
+for(var i=2; i<=10; i++)
+{
+    // Next fibonacci number = previous + one before previous
+    // Translated to JavaScript:
+    fib[i] = fib[i-2] + fib[i-1];
+    fib.push(fib[i])
+    console.log(fib[i]);
+}
+8</script>
+
+Polindrome number
+-----------------
+Example: 1
+----------
+<body>
+input : <input type="text" id="polin" value="22">
+<script>
+var polin=document.getElementById("polin").value;
+var polinrev = polin.split("").reverse().join("");
+
+if( polin == polinrev){
+	console.log("Given number is polindrome");
+	}
+</script>
+</body>
+
+Example: 2
+------------
+<script type="text/javascript">
+function checkPalindrome() {
+var revStr = "";
+var str = document.getElementById("str").value;
+var i = str.length;
+for(var j=i; j>=0; j--) {
+revStr = revStr+str.charAt(j);
+}
+if(str == revStr) {
+alert(str+" -is Palindrome");
+} else {
+alert(str+" -is not a Palindrome");
+}
+}
+</script>
+
+Reverse a number
+-------------------
+example:1
+-----------
+var revStr = "";
+var str = document.getElementById("str").value;
+var i = str.length;
+for(var j=i; j>=0; j--) {
+revStr = revStr+str.charAt(j);
+
+Example:2
+----------
+var str = document.getElementById("str").value;
+var reverseStr = str.split("").reverse().join("");
+
+Factorial of a number
+---------------------
+<script>
+var tot = 1;
+function fact(n){
+    for(var i=n; i>0; i--){      // for(var i=1; i<=n; i++){}
+    	tot = tot*i
+    }
+	return fact;
+}
+fact(5);
+console.log(tot);
+</script>
+
+Armstrong number 
+----------------
+153 = (1*1*1)+(5*5*5)+(3*3*3)
+
+Enter Number:<input type="text" id="arm">
+<input type="button" value="Check" onclick="checkArm()">
+<script>
+function checkArm(){
+var arm = document.getElementById("arm").value;
+var sum = 0;
+for(var i=0; i<arm.length; i++) {
+var num = parseInt(arm.charAt(i));
+	sum = sum + num*num*num;
+    }
+    if(sum === parseInt(arm)){
+    alert("given number is armstrong");
+    console.log(sum);
+    }
+    else
+	    alert("given number is Not armstrong");  	
+}    
+</script>
+
+Prime Numbers
+-------------
+for (var counter = 2; counter <= 100; counter++) {
+
+    var prime = true;
+    for (var i = 2; i <= counter; i++) {       // for (var i = 2; i < counter; i++) 
+        if (counter%i===0 && i!==counter) {    // if (counter%i===0)
+            prime = false;
+        }
+    }
+    if (prime === true) {
+                console.log(counter);
+    }
+}
+
+
+22
