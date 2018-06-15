@@ -1,0 +1,66 @@
+	Every function has 2 objects
+	1) function
+	2) prototype object
+
+function foo(){}
+
+function object access with function name
+prototype object access with functionname.prototype
+
+foo ---- function foo()
+foo.prototype ----- Object{}-- __proto__:Object
+
+function foo(){}
+
+foo()  ----- undefined 
+var myObj = new foo();
+myObj ----foo{} ---    __proto__:Object
+
+
+foo.prototype.test="this is prototype object"
+foo.prototype.test-----this is prototype object
+
+newObj.__proto__.test---this is prototype object
+
+foo.prototype === newObj.__proto__  ---- true
+
+Creating object with new keyword creates Prototype automatically.
+
+newObj.hello= "test" ----test
+delete newObj.hello ---
+true
+
+newObj.hello
+  -------undefined
+
+
+newObj.__proto__
+
+{test: "this is prototype object", constructor: ƒ}
+
+myObj.__proto__.hello="this is from newObj prototype"
+
+"this is from newObj prototype"
+myObj.hello
+  ----"this is from newObj prototype"
+
+inheritence
+-----------
+function Emp(name){
+	this.name = name;
+}
+emp.prototype.location = function(){
+	console.log("Hyd");
+}
+
+var e1 = new Emp("Nag");
+    e1.location();
+
+var e2 = new Emp("Prasad");
+    e2.location();
+
+var e3 = new Emp("Venkat");
+    e3.location();
+
+
+
