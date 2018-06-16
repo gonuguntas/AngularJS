@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+  <head>
+    <title>axios - post example</title>
+   
+  </head>
+  <body class="container">
+    <h1>axios</h1>
+
+      
+      <div>Get Requests</div>
+      <div>
+          <button onclick="get1()">Get Todo</button>
+          <div id="get1"></div>
+      </div>
+      
+       <div>Get Requests with parameters</div>
+         <div>
+            <input type="text" id="todoid">
+          <button onclick="get2()">Get with parameters</button>
+          <div id="get2"></div>
+      </div>
+      
+      <div>post Requests</div>
+      <div>
+        <form id="formid">
+            <input type="text" id="todoTitle">
+            <button type="submit">Send</button>
+        </form>
+        <div id="postoutput"></div>
+      </div>
+      
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script>
+        
+        function get1(){
+            var res1=document.getElementById("get1");
+                res1.innerHTML = ''
+                
+                axios.get('http://jsonplaceholder.typicode.com/todos')
+                .then(function(res){
+                    res1.innerHTML = generateSuccessHtmloutput(res);
+                })
+                .catch(function(error){
+                    res1.innerHTML = generateErrorHtmloutput(error);
+                });
+        }
+        function generateSuccessHtmloutput(res){
+            return '<h4>Result </h4>' +
+                    '<h5>Status :</h5>' +
+                    '<pre>'+ res.status +' '+ res.statusText +'</pre>'+
+                    '<h5>Headers</h5>' +
+                    '<pre>' + JSON.stringify(res.headers, null,'\t') + '</pre>' +
+                    '<h5>Data:</h5>' +
+                    '<pre>' + JSON.stringify(res.data, null,'\t') + '</pre>';
+                
+        }
+        function generateErrorHtmloutput(error){
+            return '<h4>Result :</h4>' +
+                    '<h5>Result :</h5>' +
+                    '<pre>'+ error.message + '</pre>' +
+                    '<h5>Status :</h5>' +
+                    '<pre>'+ error.res.status +' '+ error.res.statusText +'</pre>'+
+                    '<h5>Headers</h5>' +
+                    '<pre>' + JSON.stringify(error.res.headers, null,'\t') + '</pre>' +
+                    '<h5>Data:</h5>' +
+                    '<pre>' + JSON.stringify(error.res.data, null,'\t') + '</pre>';
+                
+        }
+        
+           function get2(){
+            var res2=document.getElementById("get2");
+            var todoid= document.getElementById("todoid").value;
+                res2.innerHTML = ''
+                
+                axios.get('http://jsonplaceholder.typicode.com/todos',{
+                    params:{
+                        id: todoid
+                    }
+                })
+                .then(function(res){
+                    res2.innerHTML = generateSuccessHtmloutput(res);
+                })
+                .catch(function(error){
+                    res2.innerHTML = generateErrorHtmloutput(error);
+                });
+        }
+        document.getElementById("formid").addEventListener("submit", performPost);
+        
+        function performPost(e){
+            var todotitle= document.getElementById("todoTitle").value;
+            var out= document.getElementById("postoutput");
+                out.innerHTML = '';
+            axios.post('http://jsonplaceholder.typicode.com/todos',{
+                    userId: '1',
+                    title:  todotitle,
+                    completed: false
+                })
+                .then(function(res){
+                    out.innerHTML = generateSuccessHtmloutput(res);
+                })
+                .catch(function(error){
+                    out.innerHTML = generateErrorHtmloutput(error);
+                })
+                e.preventDefault();
+
+            
+        }
+    </script>
+  </body>
+</html>

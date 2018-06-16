@@ -1,0 +1,79 @@
+<html>
+<head>
+</head>
+    
+<body bgcolor= "B8860B">
+<center> <h1><font color="white">Javascript Caluculator</font></h1>
+    <form name="caluculator">
+        <input name="display" id="res" placeholder="0" style="width:254px; height:60px; text-align:right; font-size:30px; border-radius:8px; margin:3px" />
+        <br />
+        <input type="button" value="7" onclick="document.caluculator.display.value +='7'" style="width:60px; height:60px; font-size:30px; border-radius:8px; margin:3px" />
+        <input type="button" value="8" onclick="document.caluculator.display.value +='8'" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <input type="button" value="9" onclick="document.caluculator.display.value +='9'" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <input type="button" value="+" onclick="btnPlus()" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <br />
+        
+        <input type="button" value="4" onclick="document.caluculator.display.value +='4'" style="width:60px; height:60px; font-size:30px; border-radius:8px; margin:3px" />
+        <input type="button" value="5" onclick="document.caluculator.display.value +='5'" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <input type="button" value="6" onclick="document.caluculator.display.value +='6'" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <input type="button" value="-" onclick="btnSub()" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <br />
+        
+        <input type="button" value="1" onclick="document.caluculator.display.value +='1'" style="width:60px; height:60px; font-size:30px; border-radius:8px; margin:3px" />
+        <input type="button" value="2" onclick="document.caluculator.display.value +='2'" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <input type="button" value="3" onclick="document.caluculator.display.value +='3'" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <input type="button" value="*" onclick="btnMul()" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <br />
+        
+        <input type="button" value="0" onclick="document.caluculator.display.value +='0'" style="width:60px; height:60px; font-size:30px; border-radius:8px; margin:3px" />
+        <input type="button" value="%" onclick="btnMod()" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <input type="button" value="." onclick="btnDot()" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <input type="button" value="/" onclick="btnDiv()" style="width:60px; height:60px; font-size:30px; border-radius:8px" />
+        <br />
+        
+        <input type="button" value="=" onclick="document.caluculator.display.value = eval(document.caluculator.display.value)" style="width:124px; height:60px; font-size:30px; border-radius:8px; margin:3px" />
+        <input type="button" value="C" onclick="btnClear()" style="width:124px; height:60px; font-size:30px; border-radius:8px" />        
+        
+    </form>
+</center>
+    
+            <script>
+        
+            function btnPlus(){
+                document.caluculator.display.value +="+";
+                document.caluculator.display.style.textAlign = "right";
+            }
+            
+            function btnSub(){
+                document.caluculator.display.value +="-";
+                document.caluculator.display.style.textAlign = "right";
+            }
+            
+            function btnMul(){
+                document.caluculator.display.value +="*";
+                document.caluculator.display.style.textAlign = "right";
+            }
+            
+            function btnMod(){
+                document.caluculator.display.value +="%";
+                document.caluculator.display.style.textAlign = "right";
+            }
+            
+            function btnDot(){
+                document.caluculator.display.value +=".";
+                document.caluculator.display.style.textAlign = "right";
+            }
+            
+            function btnDiv(){
+                document.caluculator.display.value +="/";
+                document.caluculator.display.style.textAlign = "right";
+            }
+            
+            function btnClear(){
+                document.caluculator.display.value ="";
+                document.caluculator.display.style.textAlign = "right";
+            }
+        
+        </script>
+</body>    
+</html>
